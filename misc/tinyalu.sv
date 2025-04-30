@@ -44,6 +44,7 @@ module single_cycle(input [7:0] A,
 		3'b001 : result <= A + B;
 		3'b010 : result <= A & B;
 		3'b011 : result <= A ^ B;
+		default : result <= 0;
       endcase // case (op)
 
    always @(posedge clk)
