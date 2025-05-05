@@ -28,6 +28,8 @@ class dice_test extends uvm_test;
       dice_roller_h = new("dice_roller_h",this);
    endfunction : build_phase
 
+
+   //kinda bad because we are procedurally just calling functions and connecting them here
    task run_phase(uvm_phase phase);
       int the_roll;
       phase.raise_objection(this);

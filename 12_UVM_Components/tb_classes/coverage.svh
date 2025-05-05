@@ -95,28 +95,27 @@ class coverage extends uvm_component;
 endgroup
 
 
-   function new (string name, uvm_component parent);
-      super.new(name, parent);
-      op_cov = new();
-      zeros_or_ones_on_ops = new();
-   endfunction : new
+function new (string name, uvm_component parent);
+   super.new(name, parent);
+   op_cov = new();
+   zeros_or_ones_on_ops = new();
+endfunction : new
 
 function void build_phase(uvm_phase phase);
-
- if(!uvm_config_db #(virtual tinyalu_bfm)::get(null, "*","bfm", bfm))
+   if(!uvm_config_db #(virtual tinyalu_bfm)::get(null, "*","bfm", bfm))
         $fatal("Failed to get BFM");
 endfunction : build_phase
 
-   task run_phase(uvm_phase phase);
-      forever begin  : sampling_block
-         @(negedge bfm.clk);
-         A = bfm.A;
-         B = bfm.B;
-         op_set = bfm.op_set;
-         op_cov.sample();
-         zeros_or_ones_on_ops.sample();
-      end : sampling_block
-   endtask : run_phase
+task run_phase(uvm_phase phase);
+   forever begin  : sampling_block
+      @(negedge bfm.clk);
+      A = bfm.A;
+      B = bfm.B;
+      op_set = bfm.op_set;
+      op_cov.sample();
+      zeros_or_ones_on_ops.sample();
+   end : sampling_block
+endtask : run_phase
 
 endclass : coverage
 

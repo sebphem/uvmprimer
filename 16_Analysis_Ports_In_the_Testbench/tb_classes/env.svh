@@ -27,11 +27,12 @@ class env extends uvm_env;
    endfunction : new
 
    function void build_phase(uvm_phase phase);
+      //why dont we need to make an instance of the add_tester
       random_tester_h    = random_tester::type_id::create("random_tester_h",this);
       coverage_h  =  coverage::type_id::create ("coverage_h",this);
       scoreboard_h = scoreboard::type_id::create("scoreboard_h",this);
       command_monitor_h   = command_monitor::type_id::create("command_monitor_h",this);
-      result_monitor_h= result_monitor::type_id::create("result_monitor_h",this);
+      result_monitor_h = result_monitor::type_id::create("result_monitor_h",this);
       
       
    endfunction : build_phase

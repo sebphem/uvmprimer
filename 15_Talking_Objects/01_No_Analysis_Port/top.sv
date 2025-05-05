@@ -17,6 +17,7 @@ module top;
    import uvm_pkg::*;
 `include "uvm_macros.svh"
    import dice_pkg::*;
+   //we only need to give it a test name if we want to specify one test to be run by name
    initial run_test("dice_test");
 endmodule : top
 
