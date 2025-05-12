@@ -31,7 +31,10 @@ class driver extends uvm_component;
       shortint     result;
       
       forever begin : command_loop
+         // blocking consumer
          command_port.get(command);
+         //to turn into a nonblocking consumer
+         //command_port.try_get(command);
          bfm.send_op(command.A, command.B, command.op, result);
       end : command_loop
    endtask : run_phase

@@ -26,8 +26,10 @@ class env extends uvm_env;
       super.new(name,parent);
    endfunction : new
 
+   //first this
    function void build_phase(uvm_phase phase);
       //why dont we need to make an instance of the add_tester
+      //its because we can just overwrite the random tester with an add tester when we call uvm with add_test
       random_tester_h    = random_tester::type_id::create("random_tester_h",this);
       coverage_h  =  coverage::type_id::create ("coverage_h",this);
       scoreboard_h = scoreboard::type_id::create("scoreboard_h",this);
@@ -37,6 +39,7 @@ class env extends uvm_env;
       
    endfunction : build_phase
 
+   //then this
    function void connect_phase(uvm_phase phase);
       
       result_monitor_h.ap.connect(scoreboard_h.analysis_export);
@@ -44,6 +47,12 @@ class env extends uvm_env;
       command_monitor_h.ap.connect(coverage_h.analysis_export);
 
    endfunction : connect_phase
+
+   //next would be end of elaboration
+   
+   //then start of simulation
+   
+   //then run
    
 endclass
    

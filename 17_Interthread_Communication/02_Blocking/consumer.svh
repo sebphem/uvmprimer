@@ -35,5 +35,3 @@ class consumer extends uvm_component;
       end
    endtask : run_phase
 endclass : consumer
-
-   

@@ -22,7 +22,10 @@ class add_test extends random_test;
    endfunction : new
 
    function void build_phase(uvm_phase phase);
+      //set the type of random tester to be add_tester
       random_tester::type_id::set_type_override(add_tester::get_type());
+      // start the build phase of the random tester THAT CALLS RANDOM_TEST
+      // RANDOM TEST CREATES ENV WHICH CREATES RANDOM_TESTER WHICH IS ACTUALLY ADD TESTER
       super.build_phase(phase);
    endfunction : build_phase
   

@@ -29,7 +29,7 @@ class tinyalu_agent extends uvm_agent;
    uvm_analysis_port #(command_transaction) cmd_mon_ap;
    uvm_analysis_port #(result_transaction) result_ap;
 
-
+ 
 function new (string name, uvm_component parent);
    super.new(name,parent);
 endfunction : new  

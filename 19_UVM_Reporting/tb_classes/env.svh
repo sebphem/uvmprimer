@@ -47,6 +47,7 @@ class env extends uvm_env;
    
 
    function void connect_phase(uvm_phase phase);
+      //most important part is connecting the fifo to be able to see the fifo 
       driver_h.command_port.connect(command_f.get_export);
       random_tester_h.command_port.connect(command_f.put_export);
       

@@ -101,6 +101,9 @@ endgroup
       zeros_or_ones_on_ops = new();
    endfunction : new
 
+
+   //this gets called whenever the parent's write function gets called
+   //basically whenever we get an instruction, we sample the inputs to it
    function void write(command_s t);
          A = t.A;
          B = t.B;

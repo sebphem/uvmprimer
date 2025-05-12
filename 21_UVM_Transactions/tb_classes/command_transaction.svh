@@ -68,7 +68,7 @@ class command_transaction extends uvm_transaction;
                
       return same;
    endfunction : do_compare
-
+ 
 
    function string convert2string();
       string s;

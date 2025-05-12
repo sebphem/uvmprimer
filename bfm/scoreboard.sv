@@ -1,0 +1,5 @@
+module scoreboard(
+    bfm
+);
+    
+endmodule

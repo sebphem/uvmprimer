@@ -22,6 +22,7 @@ class dice_test extends uvm_test;
    average average_h;
 
    function void connect_phase(uvm_phase phase);
+      // publisher.connect(subscriber)
       dice_roller_h.roll_ap.connect(coverage_h.analysis_export);
       dice_roller_h.roll_ap.connect(histogram_h.analysis_export);      
       dice_roller_h.roll_ap.connect(average_h.analysis_export);
