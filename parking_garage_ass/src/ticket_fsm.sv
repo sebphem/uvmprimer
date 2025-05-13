@@ -40,14 +40,17 @@ module ticket_fsm #(
         end
     end
 
+    //one car at a time
+    //one must enter before another can leave
 
     always_comb begin
         printer_cmd = 0;
         take_ticket_lamp = 0;
         case(cur_state)
+            //entry
             (IDLE_E): begin
                 //entry
-                if(entry_sensor && request_btn ) begin
+                if(entry_sensor && request_btn) begin
                     next_state = PRINT;
                 end
             end
@@ -63,7 +66,10 @@ module ticket_fsm #(
 
                 end
             end
-
+            (E_GATE_OPEN): begin
+                
+            end
+            //exit
             default: begin
                 next_state = IDLE_E;
             end

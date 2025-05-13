@@ -35,7 +35,7 @@ class sequence_item extends uvm_sequence_item;
       sequence_item tested;
       bit               same;
       
-      if (rhs==null) `uvm_fatal(get_type_name(), 
+      if (rhs==null) `uvm_fatal(get_type_name(),
                                 "Tried to do comparison to a null pointer");
       
       if (!$cast(tested,rhs))
