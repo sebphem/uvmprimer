@@ -6,9 +6,10 @@ module tb;
     bram_vec_gen vec = new();
 
     task make_new_test_vector_and_drive()
-        assert(vec.randomize());
+        assert(vec.interesting_randomize());
         bif.wr_addr = vec.wr_addr;
         bif.rd_addr = vec.rd_addr;
+        bif.din = vec.din;
         bif.we = vec.we;
     endtask
 
@@ -18,6 +19,10 @@ module tb;
         reset_n=0;
         #10;
         reset_n=1;
+
+        repeat(100) begin
+            make_new_test_vector_and_drive();
+        end
     end
 
     always #10 clk=~clk;
